@@ -1,0 +1,995 @@
+@charset "UTF-8";
+
+/*전체 적용*/
+* {
+  margin: 0;
+  padding: 0;
+}
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: #000;
+}
+img {
+  border: 0;
+  vertical-align: top;
+}
+
+h1 {
+  font-size: 48px;
+  line-height: 54px;
+}
+h2 {
+  font-size: 32px;
+}
+
+body {
+  font-family: "Pretendard-Regular";
+  src: url("https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff")
+    format("woff");
+  font-weight: 400;
+  font-style: normal;
+  user-select: none;
+}
+
+/*애니메이션 키프레임들*/
+@keyframes logo-move {
+  from {
+    background-position: 0 center;
+  }
+  to {
+    background-position: 120px center; /* background-size의 가로 크기만큼 움직임 */
+  }
+}
+@keyframes tilt-shake {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-2deg);
+  }
+  50% {
+    transform: rotate(2deg);
+  }
+  75% {
+    transform: rotate(-2deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+@keyframes tilt-shake02 {
+  0% {
+    transform: rotate(-2deg);
+  }
+  25% {
+    transform: rotate(2deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  75% {
+    transform: rotate(2deg);
+  }
+  100% {
+    transform: rotate(-2deg);
+  }
+}
+
+/*핑크배경에 움직이는 로고*/
+.pinkbg {
+  width: 100%;
+  height: 30px;
+  background-color: #fa0f62;
+  padding: 15px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+.pinkbg .logobg {
+  width: 100%;
+  height: 30px; /* 로고 영역 높이 */
+  background-image: url(../images/main/VANS_VC_RGB_WHITE_LOGO.svg);
+  background-repeat: repeat-x;
+  background-position: center;
+  background-size: 120px 100%;
+  animation: logo-move 3s linear infinite;
+}
+
+/*헤더*/
+
+header .bgBK {
+  width: 100%;
+  height: 200px;
+  background-color: #222;
+  box-sizing: border-box;
+  /* overflow: hidden; */
+  position: relative;
+  z-index: 50;
+}
+header .bgBK .logo_box {
+  /* border: 1px solid red; */
+  width: 95%;
+  height: 70px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  padding: 35px 0;
+}
+header .bgBK .logo_box img {
+  width: 200px;
+}
+header .bgBK .logo_box .logoMenu {
+  /* border: 1px solid red; */
+  width: 450px;
+  display: flex;
+  justify-content: space-between;
+  color: #fff;
+  font-size: 20px;
+  padding-top: 20px;
+}
+header .bgBK .logo_box .logoMenu .search {
+  width: 200px;
+  /* border: 1px solid red; */
+  position: relative;
+}
+header .bgBK .logo_box .logoMenu .search input {
+  width: 100%;
+  height: 40px;
+  outline: none;
+  border: none;
+}
+header .bgBK .logo_box .logoMenu .search i {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: #fa0f62;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  cursor: pointer;
+}
+header .bgBK .logo_box .logoMenu #connectWallet {
+  width: 180px;
+  height: 40px;
+  background-color: #fa0f62;
+  border-radius: 50px;
+  text-align: center;
+  cursor: pointer;
+}
+
+header .bgBK .menuBox {
+  width: 95%;
+  /* border: 1px solid red; */
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  color: #fff;
+}
+header .bgBK .menuBox .bugerMenu {
+  font-size: 32px;
+  cursor: pointer;
+  padding-left: 20px;
+  transition: color 0.3s;
+}
+header .bgBK .menuBox .bugerMenu:hover {
+  color: #fa0f62;
+}
+
+header .bgBK .menuBox .gnb {
+  display: flex;
+  width: 1200px;
+}
+header .bgBK .menuBox .gnb > li {
+  width: 15%;
+  height: 35px;
+  text-align: center;
+}
+header .bgBK .menuBox .gnb > li > a {
+  font-size: 24px;
+  color: #fff;
+  display: block;
+  /* border: 1px solid red; */
+  height: 100%;
+  margin-bottom: 20px;
+}
+
+/*헤더 gnb 호버시 서브메뉴 나타나는 효과 고민중입니다 ㅠㅜ*/
+
+
+
+header .bgBK .menuBox .gnb li .gnbSub {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #222;
+  width: 100%;
+  padding: 10px 0;
+  z-index: 10;
+}
+
+header .bgBK .menuBox .gnb li {
+  position: relative;
+}
+
+/* 호버 시 서브메뉴 보이기 */
+header .bgBK .menuBox .gnb li:hover .gnbSub {
+  display: block;
+}
+
+/* 서브메뉴 안의 항목 스타일 */
+header .bgBK .menuBox .gnb li .gnbSub li {
+  padding: 8px 0;
+}
+
+header .bgBK .menuBox .gnb li .gnbSub li a {
+  color: #fff;
+  font-size: 18px;
+  display: block;
+  text-align: center;
+  transition: background-color 0.3s;
+  display: block;
+}
+
+header .bgBK .menuBox .gnb li .gnbSub li a:hover {
+  color: #fa0f62;
+}
+
+/*섹션 부분 입니다*/
+
+/*메인*/
+section .main {
+  width: 100%;
+  height: 900px;
+  /* border: 1px solid red; */
+  display: flex;
+  position: relative;
+  z-index: 10;
+}
+section .main div {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+section .main .mainBox01 {
+  width: 35%;
+  height: 100%;
+}
+section .main .mainBox01 .mBg01 {
+  width: 100%;
+  height: 30%;
+  background-image: url(../images/main/main_bg_01_1.jfif);
+  border-radius: 0 0 50px 0;
+}
+section .main .mainBox01 .mBg02 {
+  width: 100%;
+  height: 70%;
+  background-image: url(../images/main/main_bg_01_2.webp);
+  border-radius: 0 50px 0 0;
+}
+section .main .mainBox02 {
+  width: 28%;
+  height: 100%;
+  background-image: url(../images/main/main_bg_02.jpeg);
+  border-radius: 5000px 0 0 5000px;
+  margin-left: 2%;
+}
+section .main .mainBox03 {
+  width: 35%;
+  height: 100%;
+  background-image: url(../images/main/main_bg_03.png);
+}
+
+/*베스트셀러*/
+section .bestSellers {
+  width: 100%;
+  height: 950px;
+  background-color: #fa0f62;
+  position: relative;
+  overflow: hidden;
+}
+section .bestSellers .bglogo {
+  width: 100%;
+  height: 100%;
+  background-image: url(../images/main/VANSLOGO.png);
+  background-repeat: repeat;
+  background-size: 50px;
+}
+
+section .bestSellers .bglogo h1 {
+  width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+  color: #fff;
+  padding-top: 80px;
+  padding-bottom: 50px;
+}
+section .bestSellers .bglogo .img01 {
+  position: absolute;
+  top: -480px;
+  left: -100px;
+  z-index: 5;
+  animation: tilt-shake 2s infinite ease-in-out;
+}
+section .bestSellers .bglogo .img01 img {
+  width: 550px;
+}
+section .bestSellers .bglogo .img02 {
+  position: absolute;
+  top: 100px;
+  right: 10px;
+  animation: tilt-shake 2s infinite ease-in-out;
+  transform-origin: bottom center;
+}
+section .bestSellers .bglogo .img02 img {
+  width: 550px;
+}
+
+section .bestSellers .bglogo .items .img03 {
+  position: absolute;
+  bottom: 10%;
+  right: 10px;
+  z-index: 5;
+  animation: tilt-shake02 2s infinite ease-in-out;
+  transform-origin: bottom center;
+}
+section .bestSellers .bglogo .items .img03 img {
+  width: 650px;
+}
+
+/* swiper는 기본 숨기기 */
+.swiper {
+  display: none !important;
+}
+.swiper.active {
+  display: block !important;
+}
+
+section .bestSellers .bglogo .items {
+  width: 90%;
+  max-width: 1230px;
+  margin: 0 auto;
+}
+section .bestSellers .bglogo .items .swiper .swiper-wrapper .swiper-slide {
+  position: relative;
+  background-color: #fff;
+
+  width: 300px;
+  height: 400px;
+  box-sizing: border-box;
+  border-radius: 20px;
+  overflow: hidden;
+}
+section .bestSellers .bglogo .items .swiper .swiper-wrapper .swiper-slide img {
+  width: 300px;
+}
+section
+  .bestSellers
+  .bglogo
+  .items
+  .swiper
+  .swiper-wrapper
+  .swiper-slide
+  img:nth-child(1) {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 0.5s;
+  cursor: pointer;
+}
+section
+  .bestSellers
+  .bglogo
+  .items
+  .swiper
+  .swiper-wrapper
+  .swiper-slide
+  img:hover:nth-child(1) {
+  opacity: 1;
+}
+/* 슬라이드 안 텍스트 정렬 */
+.swiper-slide p {
+  text-align: center;
+  margin: 10px;
+  font-size: 14px;
+}
+.swiper-slide p span {
+  display: block;
+  color: #f00;
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+/* 탭 메뉴 스타일 */
+section .bestSellers .bglogo .items .bestTeb {
+  /* border: 1px solid #fff; */
+  display: flex;
+  justify-content: center;
+  margin: 25px 0;
+  position: relative;
+  z-index: 10;
+}
+section .bestSellers .bglogo .items .bestTeb li {
+  text-align: center;
+  cursor: pointer;
+  font-size: 20px;
+  background-color: #b10c46;
+  padding: 10px 15px;
+  margin: 0 10px;
+  border-radius: 50px;
+  color: #fff;
+}
+section .bestSellers .bglogo .items .bestTeb li.active {
+  background-color: #69072a;
+}
+
+/*프리미엄 컬렉션*/
+section .collection {
+  width: 100%;
+  height: 1020px;
+  background-image: url(../images/main/premium_bg.png);
+  transform: translateY(-100px);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+section .collection p {
+  font-size: 18px;
+}
+
+section .collection .collectionBox {
+  width: 1420px;
+  height: 100%;
+  display: flex;
+  margin: 0 auto;
+  color: #fff;
+  align-items: center;
+}
+section .collection .collectionBox .coMain img {
+  width: 700px;
+  margin: 20px 0;
+  border-radius: 10px;
+}
+
+section .collection .collectionBox .coSub > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* border: 1px solid red; */
+  width: 650px;
+  margin: 60px 0;
+  position: relative;
+}
+section .collection .collectionBox .coSub .coSub-box01::after {
+  content: "";
+  display: block;
+  width: 650px;
+  height: 1px;
+  background-color: #fff;
+  position: absolute;
+  bottom: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+section .collection .collectionBox .coSub div .coSub-box02-img,
+section .collection .collectionBox .coSub div .coSub-box01-img {
+  width: 300px;
+  height: 300px;
+  overflow: hidden;
+  border-radius: 10px;
+}
+section .collection .collectionBox .coSub div img {
+  width: 300px;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+section .collection .collectionBox .coSub div img:hover {
+  transform: scale(1.2);
+}
+section .collection .collectionBox .coSub div h2 {
+  margin: 10px 0;
+}
+
+/*아이템메뉴*/
+
+section .itemMenu {
+  width: 100%;
+  height: 750px;
+  margin-bottom: 100px;
+}
+section .itemMenu .itmu {
+  width: 1420px;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+section .itemMenu .itmu .itemMenu-box01 {
+  width: 345px;
+  box-sizing: border-box;
+}
+section .itemMenu .itmu .itemMenu-box01 > div {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 49%;
+  border-radius: 10px;
+  cursor: pointer;
+}
+section .itemMenu .itmu .itemMenu-box01 .itemMenu01 {
+  background-image: url(../images/main/menu_01.jpg);
+  margin-bottom: 15px;
+}
+section .itemMenu .itmu .itemMenu-box01 .itemMenu02 {
+  background-image: url(../images/main/menu_02.jpg);
+}
+
+section .itemMenu .itmu .itemMenu-box02 {
+  width: 345px;
+}
+section .itemMenu .itmu .itemMenu-box02 > div {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  border-radius: 10px;
+  cursor: pointer;
+}
+section .itemMenu .itmu .itemMenu-box02 .itemMenu03 {
+  height: 59%;
+  background-image: url(../images/main/menu_03.jpg);
+  margin-bottom: 15px;
+}
+section .itemMenu .itmu .itemMenu-box02 .itemMenu04 {
+  height: 39%;
+  background-image: url(../images/main/menu_04.jpg);
+}
+
+section .itemMenu .itmu .itemMenu-box349 {
+  width: 705px;
+}
+section .itemMenu .itmu .itemMenu-box349 .itemMenu-box34 {
+  display: flex;
+  justify-content: space-between;
+
+  width: 100%;
+}
+section .itemMenu .itmu .itemMenu-box349 .itemMenu-box34 > div > div {
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+section
+  .itemMenu
+  .itmu
+  .itemMenu-box349
+  .itemMenu-box34
+  .itemMenu-box03
+  .itemMenu05 {
+  height: 39%;
+  background-image: url(../images/main/menu_05.jpg);
+  margin-bottom: 10px;
+}
+section
+  .itemMenu
+  .itmu
+  .itemMenu-box349
+  .itemMenu-box34
+  .itemMenu-box03
+  .itemMenu06 {
+  height: 59%;
+  background-image: url(../images/main/menu_06.jpg);
+}
+section
+  .itemMenu
+  .itmu
+  .itemMenu-box349
+  .itemMenu-box34
+  .itemMenu-box04
+  .itemMenu07 {
+  height: 30%;
+  background-image: url(../images/main/menu_07.jpg);
+  margin-bottom: 10px;
+}
+section
+  .itemMenu
+  .itmu
+  .itemMenu-box349
+  .itemMenu-box34
+  .itemMenu-box04
+  .itemMenu08 {
+  height: 68%;
+  background-image: url(../images/main/menu_08.jpg);
+}
+
+section .itemMenu .itmu .itemMenu-box349 .itemMenu-box34 > div {
+  width: 345px;
+  height: 565px;
+}
+section .itemMenu .itmu .itemMenu-box349 .itemMenu09 {
+  width: 100%;
+  height: 170px;
+  margin-top: 11px;
+  border-radius: 10px;
+  background-image: url(../images/main/footer_bg.jpeg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  cursor: pointer;
+}
+section .itemMenu .itmu .itemMenu-box349 .itemMenu09::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 170px;
+  border-radius: 10px;
+  background-color: #fa0f62;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0.7;
+}
+section .itemMenu .itmu .itemMenu-box349 .itemMenu09 * {
+  position: relative;
+  z-index: 2;
+}
+
+
+.itemMenu01,
+.itemMenu02,
+.itemMenu03,
+.itemMenu04,
+.itemMenu05,
+.itemMenu06,
+.itemMenu07,
+.itemMenu08 {
+  position: relative;
+}
+
+.itemMenu02 .glass, 
+.itemMenu07 .glass
+{
+width: 50px;
+height: 35px;
+justify-content: center;
+}
+.itemMenu04 .glass, 
+.itemMenu06 .glass, 
+.itemMenu08 .glass, 
+.itemMenu09 .glass{
+width: 110px;
+height: 35px;
+justify-content: space-between;
+padding: 0 10px;
+}
+.itemMenu01 .glass, 
+.itemMenu03 .glass, 
+.itemMenu05 .glass{
+    width: 200px;
+height: 35px;
+justify-content: space-between;
+padding: 0 10px;
+} 
+
+
+
+.itemMenu .glass {
+  background: rgba(116, 116, 116, 0.404); /* 캡슐 반투명 효과 */
+  border-radius: 50px; /* 캡슐 모양 */
+  display: flex;
+  align-items: center;
+  position: absolute;
+  bottom: 15px; /* 이미지 하단에서 약간 위 */
+  left: 50%;
+  transform: translateX(-50%);
+  /* box-sizing: border-box; */
+  backdrop-filter: blur(5px); /* 유리 효과 */
+  font-size: 18px;
+  color: #fff;
+  transition: background 0.5s;
+}
+.itemMenu .glass:hover{
+    background: rgba(41, 41, 41, 0.404);
+}
+
+.itemMenu09 .glass{
+    top: 120px;
+}
+/*브랜드소개*/
+
+section .brand {
+  width: 100%;
+  height: 650px;
+  background-color: #222;
+  color: #fff;
+}
+
+section .brand .brandBox {
+  width: 1420px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items:end;
+  padding-top: 90px;
+}
+
+section .brand .brandBox .brandText {
+  width: 700px;
+  margin: 0 auto;
+}
+
+section .brand .brandBox .brandText h1 {
+  font-size: 86px;
+  margin-bottom: 50px;
+}
+
+section .brand .brandBox .brandText p {
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+section .brand .brandBox .brandimages-container {
+  width: 700px;
+  position: relative;
+}
+
+section .brand .brandBox .brandimages {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+section .brand .brandBox .brandimages>div {
+    width: 100%;
+  display: none; /* 기본적으로 모든 슬라이드 숨김 */
+    position: relative;
+}
+
+section .brand .brandBox .brandimages > div.active {
+  display: block;
+}
+
+section .brand .brandBox .brandimages .careers .brandimages-txt, 
+section .brand .brandBox .brandimages .sustain .sustain-txt, 
+section .brand .brandBox .brandimages .history .history-txt{
+    position: absolute;
+    bottom: 50px;
+    left: 50px;
+}
+
+section .brand .brandBox .brandimages > div img {
+  display: block;
+}
+
+/* 네비게이션 버튼 스타일 */
+section .brand .brandBox .brandimages-container .prev-btn,
+section .brand .brandBox .brandimages-container .next-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 10px;
+}
+section .brand .brandBox .brandimages-container .prev-btn:hover,
+section .brand .brandBox .brandimages-container .next-btn:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+section .brand .brandBox .brandimages-container .prev-btn {
+  left: 10px;
+}
+
+section .brand .brandBox .brandimages-container .next-btn {
+  right: 10px;
+}
+
+
+/*사이드*/
+
+section .sideMenu {
+  position: fixed;
+  bottom: 50px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 500;
+}
+
+section .sideMenu .gotop,
+section .sideMenu .chatbtn {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #fa0f62;
+  text-align: center;
+  line-height: 50px;
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+  transition: background-color 0.5s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+section .sideMenu .gotop:hover,
+section .sideMenu .chatbtn:hover {
+  background-color: #920838;
+}
+
+section .sideMenu .chatbtn svg {
+  width: 22px;
+  height: 22px;
+  color: #fff;
+}
+
+/* 상담창 */
+.chat-popup {
+  position: fixed;
+  bottom: 170px;
+  right: 20px;
+  width: 280px;
+  height: 360px;
+  background-color: #fff;
+  border: 2px solid #fa0f62;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  display: none;
+  flex-direction: column;
+  overflow: hidden;
+  font-family: "Pretendard", sans-serif;
+  z-index: 50000;
+}
+
+.chat-popup.active {
+  display: flex;
+}
+
+/* 상담창머리 */
+.chat-header {
+  background-color: #fa0f62;
+  color: #fff;
+  padding: 12px;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.chat-header button {
+  background: none;
+  border: none;
+  font-size: 18px;
+  color: #fff;
+  cursor: pointer;
+}
+.chat-header svg {
+  width: 20px;   /* 원하는 크기로 조절해봐 ex. 16px, 24px 등 */
+    height: 20px;
+  vertical-align: middle; /* 텍스트랑 정렬 잘 되게 */
+}
+
+/* 메시지 영역 */
+.chat-body {
+  flex: 1;
+  padding: 10px;
+  overflow-y: auto;
+  background-color: #f9f9f9;
+}
+
+.bot-message,
+.user-message {
+  max-width: 80%;
+  padding: 8px 12px;
+  margin-bottom: 8px;
+  border-radius: 15px;
+  font-size: 14px;
+  line-height: 1.4;
+  word-break: break-word;
+}
+
+.bot-message {
+  background-color: #eee;
+  align-self: flex-start;
+}
+
+.user-message {
+  background-color: #fa0f62;
+  color: #fff;
+  align-self: flex-end;
+  margin-left: auto;
+}
+
+/* 입력창 */
+.chat-input-box {
+  display: flex;
+  border-top: 1px solid #eee;
+}
+
+.chat-input-box input {
+  flex: 1;
+  border: none;
+  padding: 10px;
+  font-size: 14px;
+  outline: none;
+}
+
+.chat-input-box button {
+  background-color: #fa0f62;
+  color: #fff;
+  border: none;
+  padding: 0 16px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.chat-input-box button:hover {
+  background-color: #920838;
+}
+
+/*섹션 부분 입니다*/
+
+/*푸터*/
+
+footer {
+  width: 100%;
+  height: 300px;
+  background-image: url(../images/main/footer_bg.jpeg);
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  z-index: 0;
+}
+footer::before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1; /* 배경보다 위, 텍스트보다는 아래 */
+}
+/* footer 내용이 위에 오도록 */
+footer * {
+  position: relative;
+  z-index: 2;
+  color: #fff;
+}
+footer .ftText {
+  width: 1200px;
+  margin: 0 auto;
+  /* border: 1px solid red; */
+}
+
+footer .ftText .ftlogo img {
+  width: 150px;
+  padding: 75px 0;
+}
+footer .ftText address {
+  font-style: normal;
+}

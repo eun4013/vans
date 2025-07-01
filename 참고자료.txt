@@ -1,0 +1,39 @@
+color
+
+#fa0f62
+#222222
+
+font
+Pretendard
+
+h1{36px}
+h2{28}
+
+
+
+
+sub
+
+NEW
+전체상품
+베스트셀러
+신발 신상품
+의류 신상품
+액세서리 신상품
+키즈 신상품
+
+SHOES
+전체신발
+클래식
+뮬&슬라이드
+메리제인
+플랫폼
+부츠
+
+CLOTHING
+
+ACCESSORIES
+KIDS
+SKATEBOARDING
+MORE
+

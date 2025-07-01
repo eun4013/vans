@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VANSRemake</title>
+    <link rel="stylesheet" href="css/mainIndex.css" />
+    <script
+      src="https://kit.fontawesome.com/3e2532440e.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <!-- 스와이퍼 -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+
+    <script>
+      $(document).ready(function () {
+        // 슬라이드 아이템들
+        const slides = $(".brandimages > div");
+        let currentSlide = 0;
+
+        // 첫 번째 슬라이드 활성화
+        slides.eq(currentSlide).addClass("active");
+
+        // 다음 버튼 클릭 이벤트
+        $(".next-btn").click(function () {
+          // 현재 슬라이드 비활성화
+          slides.eq(currentSlide).removeClass("active");
+
+          // 다음 슬라이드 인덱스 계산
+          currentSlide = (currentSlide + 1) % slides.length;
+
+          // 다음 슬라이드 활성화
+          slides.eq(currentSlide).addClass("active");
+        });
+
+        // 이전 버튼 클릭 이벤트
+        $(".prev-btn").click(function () {
+          // 현재 슬라이드 비활성화
+          slides.eq(currentSlide).removeClass("active");
+
+          // 이전 슬라이드 인덱스 계산
+          currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+
+          // 이전 슬라이드 활성화
+          slides.eq(currentSlide).addClass("active");
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <header>
+      <div class="pinkbg">
+        <div class="logobg"></div>
+      </div>
+      <div class="bgBK">
+        <div class="logo_box">
+          <img src="images/main/VANS_VC_RGB_WHITE_LOGO.svg" alt="Logo" />
+          <div class="logoMenu">
+            <div class="search">
+              <input type="text" id="search" /><i
+                class="fa-solid fa-magnifying-glass"
+              ></i>
+            </div>
+            <div id="connectWallet">Connect Wallet</div>
+          </div>
+        </div>
+        <div class="menuBox">
+          <div class="bugerMenu"><i class="fa-solid fa-bars"></i></div>
+          <ul class="gnb">
+            <li>
+              <a href="#">NEW</a>
+              <ul class="gnbSub">
+                <li><a href="#">전체상품</a></li>
+                <li><a href="#">베스트셀러</a></li>
+                <li><a href="#">신발 신상품</a></li>
+                <li><a href="#">의류 신상품</a></li>
+                <li><a href="#">액세서리 신상품</a></li>
+                <li><a href="#">키즈 신상품</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="#">SHOES</a>
+              <ul class="gnbSub">
+                <li><a href="#">전체신발</a></li>
+                <li><a href="#">컬렉션</a></li>
+                <li><a href="#">클래식</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="#">CLOTHING</a>
+              <ul class="gnbSub">
+                <li><a href="#">전체의류</a></li>
+                <li><a href="#">남성의류</a></li>
+                <li><a href="#">여성의류</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="#">ACCESSORIES</a>
+              <ul class="gnbSub">
+                <li><a href="#">전체악세서리</a></li>
+                <li><a href="#">모자</a></li>
+                <li><a href="#">양말</a></li>
+                <li><a href="#">가방</a></li>
+                <li><a href="#">기타</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="#">KIDS</a>
+              <ul class="gnbSub">
+                <li><a href="#">키즈 신발</a></li>
+                <li><a href="#">키즈 의류</a></li>
+                <li><a href="#">키즈악세사리</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="#">SPORTS</a>
+              <ul class="gnbSub">
+                <li><a href="#">스케이트보딩</a></li>
+                <li><a href="#">서핑</a></li>
+                <li><a href="#">스노우보딩</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="#">MORE</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </header>
+
+    <section>
+      <div class="main">
+        <div class="mainBox01">
+          <div class="mBg01"></div>
+          <div class="mBg02"></div>
+        </div>
+        <div class="mainBox02"></div>
+        <div class="mainBox03"></div>
+      </div>
+
+      <div class="bestSellers">
+        <div class="bglogo">
+          <h1>Best sellers</h1>
+          <div class="bestimg img01">
+            <img src="images/main/items_01.png" alt="shoes01" />
+          </div>
+          <div class="bestimg img02">
+            <img src="images/main/items_02.png" alt="shoes02" />
+          </div>
+
+          <!-- 스와이프사용 -->
+          <div class="items">
+            <div class="swiper shoesbox">
+              <div class="swiper-wrapper shoes">
+                <div class="swiper-slide">
+                  <img
+                    src="images/items/shoes/VN000BW5E2W1_VN000BW5E2W1_hover.jpg"
+                    alt="컬러 띠어리 Authentic 어센틱 호버"
+                  />
+                  <img
+                    src="images/items/shoes/VN000BW5E2W1_VN000BW5E2W1_03.jpg"
+                    alt="컬러 띠어리 Authentic 어센틱"
+                  />
+                  <p>컬러 띠어리 Authentic 어센틱<span>48,300 원</span></p>
+                </div>
+                <div class="swiper-slide">
+                  <img
+                    src="images/items/shoes/VN000CQRBZW1_VN000CQRBZW1_hover.jpg"
+                    alt="VOld Skool Lowpro 올드스쿨 로우 프로 호버"
+                  />
+                  <img
+                    src="images/items/shoes/VN000CQRBZW1_VN000CQRBZW1_04.jpg"
+                    alt="Old Skool Lowpro 올드스쿨 로우 프로"
+                  />
+                  <p>
+                    Old Skool Lowpro 올드스쿨 로우 프로<span>79,000 원</span>
+                  </p>
+                </div>
+                <div class="swiper-slide">
+                  <img
+                    src="images/items/shoes/VN000CR0BKA1_VN000CR0BKA1_hover.jpg"
+                    alt="반스 프리미엄 Sk8-Hi 스케이트 하이 리이슈 38 호버"
+                  />
+                  <img
+                    src="images/items/shoes/VN000CR0BKA1_VN000CR0BKA1_03.jpg"
+                    alt="반스 프리미엄 Sk8-Hi 스케이트 하이 리이슈 38"
+                  />
+                  <p>
+                    반스 프리미엄 Sk8-Hi 스케이트 하이 리이슈 38<span>
+                      83,300 원</span
+                    >
+                  </p>
+                </div>
+                <div class="swiper-slide">
+                  <img
+                    src="images/items/shoes/VN000CR5BPO1_VN000CR5BPO1_hover.jpg"
+                    alt="반스 프리미엄 체커보드 Authentic 어센틱 44호버"
+                  />
+                  <img
+                    src="images/items/shoes/VN000CR5BPO1_VN000CR5BPO1_primary.jpg"
+                    alt="반스 프리미엄 체커보드 Authentic 어센틱 44"
+                  />
+                  <p>
+                    반스 프리미엄 체커보드 Authentic 어센틱 44<span
+                      >105,000 원</span
+                    >
+                  </p>
+                </div>
+                <div class="swiper-slide">
+                  <img
+                    src="images/items/shoes/VN000CRXH2D1_VN000CRXH2D1_hover.jpg"
+                    alt="키즈 글리터 Mary Jane 메리 제인호버"
+                  />
+                  <img
+                    src="images/items/shoes/VN000CRXH2D1_VN000CRXH2D1_04.jpg"
+                    alt="키즈 글리터 Mary Jane 메리 제인"
+                  />
+                  <p>키즈 글리터 Mary Jane 메리 제인<span>44,000 원</span></p>
+                </div>
+                <div class="swiper-slide">
+                  <img
+                    src="images/items/shoes/VN000CS0Z0X1_VN000CS0Z0X1_hover.jpg"
+                    alt="반스 아티스트 컬렉션 Vans x Bolin Knu Skool 뉴 스쿨"
+                  />
+                  <img
+                    src="images/items/shoes/VN000CS0Z0X1_VN000CS0Z0X1_03.jpg"
+                    alt="반스 아티스트 컬렉션 Vans x Bolin Knu Skool 뉴 스쿨"
+                  />
+                  <p>
+                    반스 아티스트 컬렉션 Vans x Bolin Knu Skool 뉴 스쿨<span
+                      >80,500 원</span
+                    >
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="swiper clothingbox">
+              <div class="swiper-wrapper clothing">
+                <div class="swiper-slide">
+                  <img
+                    src="images/items/clothing/VN000KUPCFL1_VN000KUPCFL1_hover.jpg"
+                    alt=""
+                  />
+                  <img
+                    src="images/items/clothing/VN000KUPCFL1_VN000KUPCFL1_primary.jpg"
+                    alt=""
+                  />
+                  <p>반스 아치드 풋볼 저지<span>59,000 원</span></p>
+                </div>
+                <div class="swiper-slide">
+                  <img
+                    src="images/items/clothing/VN000KYP1NU1_VN000KYP1NU1_hover.jpg"
+                    alt=""
+                  />
+                  <img
+                    src="images/items/clothing/VN000KYP1NU1_VN000KYP1NU1_primary.jpg"
+                    alt=""
+                  />
+                  <p>스케이트 루즈 플리티드 팬츠<span>89,000 원</span></p>
+                </div>
+                <div class="swiper-slide">
+                  <img
+                    src="images/items/clothing/VN000M6BWHT1_VN000M6BWHT1_hover.jpg"
+                    alt=""
+                  />
+                  <img
+                    src="images/items/clothing/VN000M6BWHT1_VN000M6BWHT1_primary.jpg"
+                    alt=""
+                  />
+                  <p>파인 다이닝 반소매 티셔츠<span>39,000 원</span></p>
+                </div>
+                <div class="swiper-slide">
+                  <img
+                    src="images/items/clothing/VN000M6MNVY1_VN000M6MNVY1_hover.jpg"
+                    alt=""
+                  />
+                  <img
+                    src="images/items/clothing/VN000M6MNVY1_VN000M6MNVY1_primary.jpg"
+                    alt=""
+                  />
+                  <p>반스 리조트 반소매 티셔츠<span>39,000 원</span></p>
+                </div>
+                <div class="swiper-slide">
+                  <img
+                    src="images/items/clothing/VN000MBCWHT1_VN000MBCWHT1_hover.jpg"
+                    alt=""
+                  />
+                  <img
+                    src="images/items/clothing/VN000MBCWHT1_VN000MBCWHT1_primary.jpg"
+                    alt=""
+                  />
+                  <p>앨리샤 박서 쇼츠<span>49,000 원</span></p>
+                </div>
+                <div class="swiper-slide">
+                  <img
+                    src="images/items/clothing/VN000NNEEDF1_VN000NNEEDF1_hover.jpg"
+                    alt=""
+                  />
+                  <img
+                    src="images/items/clothing/VN000NNEEDF1_VN000NNEEDF1_primary.jpg"
+                    alt=""
+                  />
+                  <p>펑키 애니멀 반소매 셔츠<span>79,000 원</span></p>
+                </div>
+              </div>
+            </div>
+            <div class="swiper accessoriesbox">
+              <div class="swiper-wrapper accessories">
+                <div class="swiper-slide">
+                  <img
+                    src="images/items/accessories/VN000H4YO3N1_VN000H4YO3N1_hover.jpg"
+                    alt=""
+                  />
+                  <img
+                    src="images/items/accessories/VN000H4YO3N1_VN000H4YO3N1_primary.jpg"
+                    alt=""
+                  />
+                  <p>올드스쿨 클래식 백팩<span>55,000 원</span></p>
+                </div>
+                <div class="swiper-slide">
+                  <img
+                    src="images/items/accessories/VN000HE66PH1_VN000HE66PH1_hover.jpg"
+                    alt=""
+                  />
+                  <img
+                    src="images/items/accessories/VN000HE66PH1_VN000HE66PH1_primary.jpg"
+                    alt=""
+                  />
+                  <p>트래블러 패니 팩<span>20,300 원</span></p>
+                </div>
+                <div class="swiper-slide">
+                  <img
+                    src="images/items/accessories/VN000HEARNE1_VN000HEARNE1_hover.jpg"
+                    alt=""
+                  />
+                  <img
+                    src="images/items/accessories/VN000HEARNE1_VN000HEARNE1_primary.jpg"
+                    alt=""
+                  />
+                  <p>코트 사이드 커브드 빌 쟈키 캡<span>35,000 원</span></p>
+                </div>
+                <div class="swiper-slide">
+                  <img
+                    src="images/items/accessories/VN000MNTBLK1_VN000MNTBLK1_hover.jpg"
+                    alt=""
+                  />
+                  <img
+                    src="images/items/accessories/VN000MNTBLK1_VN000MNTBLK1_primary.jpg"
+                    alt=""
+                  />
+                  <p>배럴드 미니 백<span>38,500 원</span></p>
+                </div>
+                <div class="swiper-slide">
+                  <img
+                    src="images/items/accessories/VN000NCCCI21_VN000NCCCI21_hover.jpg"
+                    alt=""
+                  />
+                  <img
+                    src="images/items/accessories/VN000NCCCI21_VN000NCCCI21_primary.jpg"
+                    alt=""
+                  />
+                  <p>
+                    반스 프리미엄 프라이머리 체크 삭스<span>12,000 원</span>
+                  </p>
+                </div>
+                <div class="swiper-slide">
+                  <img
+                    src="images/items/accessories/VN000ND2WHT1_VN000ND2WHT1_hover.jpg"
+                    alt=""
+                  />
+                  <img
+                    src="images/items/accessories/VN000ND2WHT1_VN000ND2WHT1_primary.jpg"
+                    alt=""
+                  />
+                  <p>버긴 아웃 카누들 삭스<span>10,500 원</span></p>
+                </div>
+              </div>
+            </div>
+            <div class="swiper kidsbox">
+              <div class="swiper-wrapper kids">
+                <div class="swiper-slide">
+                  <img
+                    src="images/items/kids/VN000CS6BOX1_VN000CS6BOX1_hover.jpg"
+                    alt=""
+                  />
+                  <img
+                    src="images/items/kids/VN000CS6BOX1_VN000CS6BOX1_03.jpg"
+                    alt=""
+                  />
+                  <p>
+                    토들러 트로파델릭 Old Skool 올드스쿨 벨크로<span
+                      >55,000 원</span
+                    >
+                  </p>
+                </div>
+                <div class="swiper-slide">
+                  <img
+                    src="images/items/kids/VN000CYAE2Y1_VN000CYAE2Y1_hover.jpg"
+                    alt=""
+                  />
+                  <img
+                    src="images/items/kids/VN000CYAE2Y1_VN000CYAE2Y1_03.jpg"
+                    alt=""
+                  />
+                  <p>
+                    키즈 컬러 띠어리 체커보드 Old Skool 올드스쿨 벨크로<span
+                      >59,000 원</span
+                    >
+                  </p>
+                </div>
+                <div class="swiper-slide">
+                  <img
+                    src="images/items/kids/VN000CYDCY71_VN000CYDCY71_hover.jpg"
+                    alt=""
+                  />
+                  <img
+                    src="images/items/kids/VN000CYDCY71_VN000CYDCY71_03.jpg"
+                    alt=""
+                  />
+                  <p>
+                    키즈 발레 스케이티콘 Old Skool 올드스쿨 벨크로<span>
+                      52,000 원</span
+                    >
+                  </p>
+                </div>
+                <div class="swiper-slide">
+                  <img
+                    src="images/items/kids/VN000MKNNVY1_VN000MKNNVY1_hover.jpg"
+                    alt=""
+                  />
+                  <img
+                    src="images/items/kids/VN000MKNNVY1_VN000MKNNVY1_primary.jpg"
+                    alt=""
+                  />
+                  <p>키즈 피클볼러 반소매 티셔츠<span>35,000 원</span></p>
+                </div>
+                <div class="swiper-slide">
+                  <img
+                    src="images/items/kids/VN000MNC7WM1_VN000MNC7WM1_hover.jpg"
+                    alt=""
+                  />
+                  <img
+                    src="images/items/kids/VN000MNC7WM1_VN000MNC7WM1_primary.jpg"
+                    alt=""
+                  />
+                  <p>키즈 윌로우 스트랩백<span>39,000 원</span></p>
+                </div>
+                <div class="swiper-slide">
+                  <img
+                    src="images/items/kids/VN000MNCD3X1_VN000MNCD3X1_hover.jpg"
+                    alt=""
+                  />
+                  <img
+                    src="images/items/kids/VN000MNCD3X1_VN000MNCD3X1_primary.jpg"
+                    alt=""
+                  />
+                  <p>키즈 윌로우 스트랩백<span>39,000 원</span></p>
+                </div>
+              </div>
+            </div>
+            <div class="swiper premiumbox">
+              <div class="swiper-wrapper premium">
+                <div class="swiper-slide">
+                  <img
+                    src="images/items/premium/VN000EBNBPT1_VN000EBNBPT1_hover.jpg"
+                    alt=""
+                  />
+                  <img
+                    src="images/items/premium/VN000EBNBPT1_VN000EBNBPT1_primary.jpg"
+                    alt=""
+                  />
+                  <p>
+                    반스 프리미엄 카우 Authentic 어센틱<span>105,000 원</span>
+                  </p>
+                </div>
+                <div class="swiper-slide">
+                  <img
+                    src="images/items/premium/VN000EBNWGR1_VN000EBNWGR1_hover.jpg"
+                    alt=""
+                  />
+                  <img
+                    src="images/items/premium/VN000EBNWGR1_VN000EBNWGR1_primary.jpg"
+                    alt=""
+                  />
+                  <p>
+                    반스 프리미엄 덕 캔버스 Authentic 어센틱 44<span
+                      >105,000 원</span
+                    >
+                  </p>
+                </div>
+                <div class="swiper-slide">
+                  <img
+                    src="images/items/premium/VN000R61BLK1_VN000R61BLK1_hover.jpg"
+                    alt=""
+                  />
+                  <img
+                    src="images/items/premium/VN000R61BLK1_VN000R61BLK1_primary.jpg"
+                    alt=""
+                  />
+                  <p>
+                    반스 아티스트 컬렉션 Vans X Hanai 서프 반소매 티셔츠<span
+                      >59,000 원</span
+                    >
+                  </p>
+                </div>
+                <div class="swiper-slide">
+                  <img
+                    src="images/items/premium/VN000R62RV21_VN000R62RV21_hover.jpg"
+                    alt=""
+                  />
+                  <img
+                    src="images/items/premium/VN000R62RV21_VN000R62RV21_primary.jpg"
+                    alt=""
+                  />
+                  <p>
+                    반스 아티스트 컬렉션 Vans X Hanai 우븐 쇼츠<span
+                      >89,000 원</span
+                    >
+                  </p>
+                </div>
+                <div class="swiper-slide">
+                  <img
+                    src="images/items/premium/VN000R63BLK1_VN000R63BLK1_hover.jpg"
+                    alt=""
+                  />
+                  <img
+                    src="images/items/premium/VN000R63BLK1_VN000R63BLK1_primary.jpg"
+                    alt=""
+                  />
+                  <p>
+                    반스 아티스트 컬렉션 Vans X Hanai 토트<span>79,000 원</span>
+                  </p>
+                </div>
+                <div class="swiper-slide">
+                  <img
+                    src="images/items/premium/VN000R64BLK1_VN000R64BLK1_hover.jpg"
+                    alt=""
+                  />
+                  <img
+                    src="images/items/premium/VN000R64BLK1_VN000R64BLK1_primary.jpg"
+                    alt=""
+                  />
+                  <p>
+                    반스 아티스트 컬렉션 Vans X Hanai 캡<span>55,000 원</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="swiper sportsbox">
+              <div class="swiper-wrapper sports">
+                <div class="swiper-slide">
+                  <img
+                    src="images/items/skateboarding/VN000D3SBLK1_VN000D3SBLK1_hover.jpg"
+                    alt=""
+                  />
+                  <img
+                    src="images/items/skateboarding/VN000D3SBLK1_VN000D3SBLK1_03.jpg"
+                    alt=""
+                  />
+                  <p>Skate Rowan 스케이트 로완 2<span>87,500 원</span></p>
+                </div>
+                <div class="swiper-slide">
+                  <img
+                    src="images/items/skateboarding/VN000D5RBA21_VN000D5RBA21_hover_new.jpg"
+                    alt=""
+                  />
+                  <img
+                    src="images/items/skateboarding/VN000D5RBA21_VN000D5RBA21_primary_new.jpg"
+                    alt=""
+                  />
+                  <p>스케이트 올드스쿨 36+<span>109,000 원</span></p>
+                </div>
+                <div class="swiper-slide">
+                  <img
+                    src="images/items/skateboarding/VN000D5RHT31_VN000D5RHT31_hover.jpg"
+                    alt=""
+                  />
+                  <img
+                    src="images/items/skateboarding/VN000D5RHT31_VN000D5RHT31_03.jpg"
+                    alt=""
+                  />
+                  <p>스케이트 올드스쿨 36+<span>109,000 원</span></p>
+                </div>
+                <div class="swiper-slide">
+                  <img
+                    src="images/items/skateboarding/VN000D85GRY1_VN000D85GRY1_hover.jpg"
+                    alt=""
+                  />
+                  <img
+                    src="images/items/skateboarding/VN000D85GRY1_VN000D85GRY1_03.jpg"
+                    alt=""
+                  />
+                  <p>스케이트 커렌 케이플스<span>92,000 원</span></p>
+                </div>
+                <div class="swiper-slide">
+                  <img
+                    src="images/items/skateboarding/VN0A2Z2Z8D31_VN0A2Z2Z8D31_hover.jpg"
+                    alt=""
+                  />
+                  <img
+                    src="images/items/skateboarding/VN0A2Z2Z8D31_VN0A2Z2Z8D31_03.jpg"
+                    alt=""
+                  />
+                  <p>
+                    헤어리 스웨이드 Skate Authentic 스케이트 어센틱<span
+                      >62,300 원</span
+                    >
+                  </p>
+                </div>
+                <div class="swiper-slide">
+                  <img
+                    src="images/items/skateboarding/VN0A2Z2ZRED1_VN0A2Z2ZRED1_hover.jpg"
+                    alt=""
+                  />
+                  <img
+                    src="images/items/skateboarding/VN0A2Z2ZRED1_VN0A2Z2ZRED1_03.jpg"
+                    alt=""
+                  />
+                  <p>Skate Authentic 스케이트 어센틱<span>79,000 원</span></p>
+                </div>
+              </div>
+            </div>
+
+            <div class="bestimg img03">
+              <img src="images/main/items_03.png" alt="shoes03" />
+            </div>
+
+            <ul class="bestTeb">
+              <li class="active">Shoes</li>
+              <li>Clothing</li>
+              <li>Accessories</li>
+              <li>Kids</li>
+              <li>Premium</li>
+              <li>Skateboarding</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="collection">
+        <div class="collectionBox">
+          <div class="coMain">
+            <h1>Premium Old Skool Music Collection</h1>
+            <img
+              src="images/main/premium_main.jpg"
+              alt="Premium Old Skool Music Collection"
+            />
+            <p>
+              The Premium Old Skool은 아이코닉한 실루엣에
+              <br />
+              고급스러운 구조를 적용하여 새로운 매력을 더했습니다.
+            </p>
+          </div>
+          <div class="coSub">
+            <div class="coSub-box01">
+              <div class="coSub-box01-txt">
+                <h2>상징적인 디테일</h2>
+                <p>
+                  글로시한 신발측면, 높은 아웃솔
+                  <br />
+                  빈티지 스타일 브랜딩을 통해
+                  <br />
+                  Old Skool Premium은
+                  <br />
+                  90년대 Vans의 레트로 매력을
+                  <br />
+                  다시 선보입니다.
+                </p>
+              </div>
+              <div class="coSub-box01-img">
+                <img src="images/main/premium_ex01.jpeg" alt="detail" />
+              </div>
+            </div>
+            <div class="coSub-box02">
+              <div class="coSub-box02-txt">
+                <h2>향상된 착화감</h2>
+                <p>
+                  정교하게 개선된 신발형태와 구조로
+                  <br />
+                  발에 더욱 잘 맞도록 설계되어
+                  <br />
+                  한층 더 부드럽고 편안한 착용감을 주며,
+                  <br />
+                  자연스러운 움직임을 완성합니다.
+                </p>
+              </div>
+              <div class="coSub-box02-img">
+                <img src="images/main/premium_ex02.jpeg" alt="Comfort" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="itemMenu">
+        <div class="itmu">
+          <div class="itemMenu-box01">
+            <div class="itemMenu01">
+              <div class="glass">
+                <p>READY FOR SPRING</p>
+                <i class="fa-solid fa-angle-right"></i>
+              </div>
+            </div>
+            <div class="itemMenu02">
+              <div class="glass">
+                <!-- <p>READY FOR SPRING</p> -->
+                <i class="fa-solid fa-angle-right"></i>
+              </div>
+            </div>
+          </div>
+          <div class="itemMenu-box02">
+            <div class="itemMenu03">
+              <div class="glass">
+                <p>KIDS COLLECTION</p>
+                <i class="fa-solid fa-angle-right"></i>
+              </div>
+            </div>
+            <div class="itemMenu04">
+              <div class="glass">
+                <p>SHOES</p>
+                <i class="fa-solid fa-angle-right"></i>
+              </div>
+            </div>
+          </div>
+          <div class="itemMenu-box349">
+            <div class="itemMenu-box34">
+              <div class="itemMenu-box03">
+                <div class="itemMenu05">
+                  <div class="glass">
+                    <p>ACCESSORIES</p>
+                    <i class="fa-solid fa-angle-right"></i>
+                  </div>
+                </div>
+                <div class="itemMenu06">
+                  <div class="glass">
+                    <p>CLOTHING</p>
+                    <i class="fa-solid fa-angle-right"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="itemMenu-box04">
+                <div class="itemMenu07">
+                  <div class="glass">
+                    <!-- <p>READY FOR SPRING</p> -->
+                    <i class="fa-solid fa-angle-right"></i>
+                  </div>
+                </div>
+                <div class="itemMenu08">
+                  <div class="glass">
+                    <p>PREMIUM</p>
+                    <i class="fa-solid fa-angle-right"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="itemMenu09">
+              <div class="glass">
+                <p>MORE</p>
+                <i class="fa-solid fa-angle-right"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pinkbg">
+        <div class="logobg"></div>
+      </div>
+
+      <div class="brand">
+        <div class="brandBox">
+          <div class="brandText">
+            <h1>BRAND :</h1>
+            <p>
+              An elevated look is classic
+              <br />
+              get ready to hit the load
+            </p>
+          </div>
+          <!-- 슬라이더 컨테이너 -->
+          <div class="brandimages-container">
+            <!-- 네비게이션 버튼 -->
+            <button class="prev-btn">
+              <i class="fa-solid fa-angle-left"></i>
+            </button>
+            <button class="next-btn">
+              <i class="fa-solid fa-angle-right"></i>
+            </button>
+
+            <!-- 슬라이더 -->
+            <div class="brandimages">
+              <div class="history">
+                <img src="images/main/history_01.png" alt="history" />
+                <div class="history-txt">
+                  <h2>About</h2>
+                  <p>브랜드스토리</p>
+                </div>
+              </div>
+              <div class="sustain">
+                <img src="images/main/sustain-hero-m.jpg" alt="sustain" />
+                <div class="sustain-txt">
+                  <h2>Sustainability</h2>
+                  <p>The future starts today</p>
+                </div>
+              </div>
+              <div class="careers">
+                <img src="images/main/careers_inclusivity.jpg" alt="careers" />
+                <div class="brandimages-txt">
+                  <h2>Careers</h2>
+                  <p>Belonging & Inclusion</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sideMenu">
+        <div class="chatbtn" onclick="toggleChat()">
+          <!-- sparkle SVG 아이콘 -->
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+            <path
+              d="M32 0L39.2 24.8L64 32L39.2 39.2L32 64L24.8 39.2L0 32L24.8 24.8z"
+              fill="currentColor"
+            />
+          </svg>
+        </div>
+
+        <div class="gotop">
+          <i class="fa-solid fa-angle-up fa-beat"></i>
+        </div>
+      </div>
+
+      <div class="chat-popup" id="chatPopup">
+        <div class="chat-header">
+          <span
+            ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+              <path
+                d="M32 0L39.2 24.8L64 32L39.2 39.2L32 64L24.8 39.2L0 32L24.8 24.8z"
+                fill="currentColor"
+              />
+            </svg>
+            상담 챗봇</span
+          >
+          <button onclick="toggleChat()">×</button>
+        </div>
+
+        <div class="chat-body" id="chatBody">
+          <div class="bot-message">안녕하세요! 무엇을 도와드릴까요? 😊</div>
+        </div>
+
+        <div class="chat-input-box">
+          <input
+            type="text"
+            id="chatInput"
+            placeholder="메시지를 입력하세요..."
+          />
+          <button onclick="sendMessage()">전송</button>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="ftText">
+        <div class="ftlogo">
+          <img src="images/main/VANS_VC_RGB_WHITE_LOGO.svg" alt="" />
+        </div>
+        <address>
+          유한책임회사 브이에프코리아 | 대표 SANUSI SYLVANI | 등록번호
+          220-88-43561 | 통신판매업신고번호 2013-서울강남-02918호 사업자정보확인
+          <br />
+          서울특별시 강남구 테헤란로 317 동훈타워 18층 | 개인정보 책임자 이보람
+          | 고객센터(평일 09:00 ~ 18:00) 1522-1882 | 이메일
+          Vanskr_online@vfc.com
+        </address>
+      </div>
+    </footer>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- Initialize Swiper -->
+    <script>
+      const selectors = [
+        ".shoesbox",
+        ".clothingbox",
+        ".accessoriesbox",
+        ".kidsbox",
+        ".premiumbox",
+        ".sportsbox",
+      ];
+
+      selectors.forEach((sel) => {
+        new Swiper(sel, {
+          slidesPerView: 4,
+          spaceBetween: 10,
+          loop: true,
+        });
+      });
+    </script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const tabButtons = document.querySelectorAll(".bestTeb li");
+        const swipers = document.querySelectorAll(".swiper");
+        const swiperInstances = new Array(swipers.length).fill(null);
+
+        // 탭 클릭 이벤트
+        tabButtons.forEach((btn, idx) => {
+          btn.addEventListener("click", () => {
+            // 탭 버튼 스타일 변경
+            tabButtons.forEach((b) => b.classList.remove("active"));
+            btn.classList.add("active");
+
+            // swiper display 제어
+            swipers.forEach((s) => s.classList.remove("active"));
+            swipers[idx].classList.add("active");
+
+            // Swiper가 아직 초기화되지 않았다면, 이 시점에서 초기화
+            if (!swiperInstances[idx]) {
+              swiperInstances[idx] = new Swiper(swipers[idx], {
+                slidesPerView: 4,
+                spaceBetween: 10,
+                loop: true,
+              });
+            }
+          });
+        });
+
+        // 기본으로 첫 번째 swiper만 보이고 초기화
+        swipers[0].classList.add("active");
+        swiperInstances[0] = new Swiper(swipers[0], {
+          slidesPerView: 4,
+          spaceBetween: 10,
+          loop: true,
+        });
+      });
+
+      function toggleChat() {
+        document.getElementById("chatPopup").classList.toggle("active");
+      }
+
+      // 위로 가기 버튼 기능도 넣을 수 있음
+      document.querySelector(".gotop").addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+    </script>
+  </body>
+</html>

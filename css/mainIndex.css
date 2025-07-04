@@ -18,7 +18,7 @@ img {
 }
 
 h1 {
-  font-size: 48px;
+  font-size: 58px;
   line-height: 54px;
 }
 h2 {
@@ -76,6 +76,12 @@ body {
   100% {
     transform: rotate(-2deg);
   }
+}
+
+@keyframes gocollection{
+  0%{right: 60px;}
+  50%{right: 30px;}
+  100%{right: 60px;}
 }
 
 /*핑크배경에 움직이는 로고*/
@@ -152,7 +158,9 @@ header .bgBK .logo_box .logoMenu .search i {
   line-height: 40px;
   text-align: center;
   cursor: pointer;
+  transition: background-color 0.5s;
 }
+
 header .bgBK .logo_box .logoMenu #connectWallet {
   width: 180px;
   height: 40px;
@@ -160,6 +168,12 @@ header .bgBK .logo_box .logoMenu #connectWallet {
   border-radius: 50px;
   text-align: center;
   cursor: pointer;
+  line-height: 35px;
+  transition: background-color 0.5s;
+}
+header .bgBK .logo_box .logoMenu .search i:hover, 
+header .bgBK .logo_box .logoMenu #connectWallet:hover {
+  background-color: #920838;
 }
 
 header .bgBK .menuBox {
@@ -196,10 +210,11 @@ header .bgBK .menuBox .gnb > li > a {
   /* border: 1px solid red; */
   height: 100%;
   margin-bottom: 20px;
+  transition: color 0.5s;
 }
-
-/*헤더 gnb 호버시 서브메뉴 나타나는 효과 고민중입니다 ㅠㅜ*/
-
+header .bgBK .menuBox .gnb > li:hover > a {
+  color: #fa0f62;
+}
 
 
 header .bgBK .menuBox .gnb li .gnbSub {
@@ -238,6 +253,92 @@ header .bgBK .menuBox .gnb li .gnbSub li a {
 
 header .bgBK .menuBox .gnb li .gnbSub li a:hover {
   color: #fa0f62;
+}
+
+/* 왼쪽 슬라이드 메뉴 */
+.sideSlideMenu {
+  position: fixed;
+  top: 0;
+  left: -400px;
+  width: 350px;
+  height: 100vh;
+  background: #111;
+  color: #fff;
+  z-index: 9999;
+  transition: left 0.4s ease-in-out;
+  overflow-y: auto;
+}
+
+.sideSlideMenu.active {
+  left: 0;
+}
+
+.sideSlideMenu .sideHeader {
+  text-align: right;
+  padding: 20px;
+  font-size: 28px;
+}
+
+.sideSlideMenu .sideHeader .closeBtn {
+  cursor: pointer;
+}
+
+.sideSlideMenu .sideContent {
+  padding: 0 20px 50px 20px;
+}
+
+.sideSlideMenu .depth1 > li {
+  border-top: 1px solid #333;
+  /* border-radius: 8px; */
+  padding: 20px;
+  margin-bottom: 0px;
+  /* background-color: #1a1a1a; */
+  transition: background-color 0.3s ease;
+}
+
+.sideSlideMenu .depth1 > li:last-child{
+  border-bottom: 1px solid #333;
+}
+
+
+.sideSlideMenu span {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #fa0f62;
+  font-size: 24px;
+}
+
+/* 서브메뉴 */
+.sideSlideMenu .depth2 li {
+  font-size: 18px;
+  color: #ccc;
+  /* margin-left: 20px; */
+  margin-bottom: 5px;
+  transition: color 0.3s ease;
+  position: relative;
+}
+.sideSlideMenu .depth2 li:last-child{
+  margin-bottom: 35px;
+}
+.sideSlideMenu .depth2 li:hover {
+  color: #fff;
+}
+
+/* 스크롤 시 배경 자연스럽게 */
+.sideSlideMenu {
+  scrollbar-width: thin;
+  scrollbar-color: #fa0f62 #111;
+}
+.sideSlideMenu::-webkit-scrollbar {
+  width: 10px;
+}
+.sideSlideMenu::-webkit-scrollbar-track {
+  background: #111;
+}
+.sideSlideMenu::-webkit-scrollbar-thumb {
+  background-color: #fa0f62;
+  border-radius: 10px;
 }
 
 /*섹션 부분 입니다*/
@@ -306,48 +407,68 @@ section .bestSellers .bglogo h1 {
   margin: 0 auto;
   text-align: center;
   color: #fff;
-  padding-top: 80px;
-  padding-bottom: 50px;
+  padding-top: 70px;
+  padding-bottom: 70px;
 }
 section .bestSellers .bglogo .img01 {
   position: absolute;
-  top: -480px;
+  top: -400px;
   left: -100px;
   z-index: 5;
   animation: tilt-shake 2s infinite ease-in-out;
 }
 section .bestSellers .bglogo .img01 img {
-  width: 550px;
+  width: 500px;
 }
 section .bestSellers .bglogo .img02 {
   position: absolute;
-  top: 100px;
+  top: 120px;
   right: 10px;
   animation: tilt-shake 2s infinite ease-in-out;
   transform-origin: bottom center;
 }
 section .bestSellers .bglogo .img02 img {
-  width: 550px;
+  width: 500px;
 }
 
 section .bestSellers .bglogo .items .img03 {
   position: absolute;
-  bottom: 10%;
+  bottom: 12%;
   right: 10px;
   z-index: 5;
   animation: tilt-shake02 2s infinite ease-in-out;
   transform-origin: bottom center;
 }
 section .bestSellers .bglogo .items .img03 img {
-  width: 650px;
+  width: 550px;
 }
 
 /* swiper는 기본 숨기기 */
 .swiper {
-  display: none !important;
+    display: none !important;
+    position: relative;
+     min-height: 450px;
+    /* 슬라이드 시각적 경계 내에 스크롤바를 표시하려면 여기의 padding-bottom을 제거하거나 조정하세요. */
+    /* 스크롤바 *아래*에 공간을 원하면 유지하거나 필요에 따라 조정하세요. */
+    padding-bottom: 50px; /* 스크롤바를 위한 공간을 만들기 위해 필요한 만큼 이 값을 조정하세요. */
 }
+
 .swiper.active {
-  display: block !important;
+    display: block !important;
+}
+
+.swiper-scrollbar {
+    position: absolute;
+    bottom: 0; /* 스와이퍼 컨테이너의 가장 아래에 정확히 배치하려면 0으로 설정하세요. */
+    left: 0;
+    width: 100%; /* 스와이퍼의 전체 너비를 차지하도록 합니다. */
+    height: 4px;
+    background: rgba(0, 0, 0, 0.1);
+    z-index: 10; /* 필요한 경우 다른 콘텐츠 위에 오도록 합니다. */
+}
+
+.swiper-scrollbar-drag {
+    background: #000;
 }
 
 section .bestSellers .bglogo .items {
@@ -411,7 +532,7 @@ section .bestSellers .bglogo .items .bestTeb {
   /* border: 1px solid #fff; */
   display: flex;
   justify-content: center;
-  margin: 25px 0;
+  margin: 50px 0;
   position: relative;
   z-index: 10;
 }
@@ -432,7 +553,7 @@ section .bestSellers .bglogo .items .bestTeb li.active {
 /*프리미엄 컬렉션*/
 section .collection {
   width: 100%;
-  height: 1020px;
+  height: 1280px;
   background-image: url(../images/main/premium_bg.png);
   transform: translateY(-100px);
   background-position: center;
@@ -451,10 +572,52 @@ section .collection .collectionBox {
   color: #fff;
   align-items: center;
 }
-section .collection .collectionBox .coMain img {
+
+section .collection .collectionBox .coMain a img {
   width: 700px;
   margin: 20px 0;
   border-radius: 10px;
+  /* border: 1px solid red; */
+  
+}
+section .collection .collectionBox .coMain a{
+  display: block;
+  width: 700px;
+  position: relative;
+  color: #fff;
+}
+section .collection .collectionBox .coMain a::after{
+  content: "";
+  display: block;
+  width: 700px;
+  height: 468px;
+  border-radius: 10px;
+  margin: 20px 0;
+  background-color: #000000ad;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  opacity: 0;
+  transition: opacity 0.5s;
+  z-index: 1;
+}
+section .collection .collectionBox .coMain a:hover::after{
+  opacity: 1;
+}
+
+section .collection .collectionBox .coMain a>div{
+  position: absolute;
+  bottom: 50px;
+  right: 50px;
+  font-size: 50px;
+  opacity: 0;
+  transition: opacity 0.5s;
+  z-index: 2;
+}
+
+section .collection .collectionBox .coMain a:hover>div{
+  opacity: 1;
+  animation: gocollection 1s linear infinite;
 }
 
 section .collection .collectionBox .coSub > div {
@@ -511,126 +674,100 @@ section .itemMenu .itmu {
   display: flex;
   justify-content: space-between;
 }
-section .itemMenu .itmu .itemMenu-box01 {
-  width: 345px;
-  box-sizing: border-box;
+
+.itemMenubox {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  cursor: pointer;
+  width: 100%;
+  z-index: 0;
 }
-section .itemMenu .itmu .itemMenu-box01 > div {
+
+/* background를 ::before로 분리해 배경만 확대 */
+.itemMenubox::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: inherit;
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
-  width: 100%;
+  transform: scale(1);
+  transition: transform 0.5s ease;
+  z-index: -1;
+  border-radius: 10px;
+}
+
+.itemMenubox:hover::before {
+  transform: scale(1.1);
+}
+
+.itemMenu-box01 > div,
+.itemMenu-box02 > div {
   height: 49%;
-  border-radius: 10px;
-  cursor: pointer;
 }
-section .itemMenu .itmu .itemMenu-box01 .itemMenu01 {
-  background-image: url(../images/main/menu_01.jpg);
-  margin-bottom: 15px;
-}
-section .itemMenu .itmu .itemMenu-box01 .itemMenu02 {
-  background-image: url(../images/main/menu_02.jpg);
+.itmu {
+  display: flex;
+  width: 1420px;
+  height: 100%;
+  margin: 0 auto;
+  justify-content: space-between;
+  gap: 20px;
 }
 
-section .itemMenu .itmu .itemMenu-box02 {
-  width: 345px;
+.itemMenu-box01,
+.itemMenu-box02 {
+  width: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
 }
-section .itemMenu .itmu .itemMenu-box02 > div {
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  width: 100%;
-  border-radius: 10px;
-  cursor: pointer;
-}
-section .itemMenu .itmu .itemMenu-box02 .itemMenu03 {
+.itemMenu-box02 .itemMenu03 {
   height: 59%;
-  background-image: url(../images/main/menu_03.jpg);
   margin-bottom: 15px;
 }
-section .itemMenu .itmu .itemMenu-box02 .itemMenu04 {
+.itemMenu-box02 .itemMenu04 {
   height: 39%;
-  background-image: url(../images/main/menu_04.jpg);
 }
-
-section .itemMenu .itmu .itemMenu-box349 {
+.itemMenu-box01 .itemMenu01 {
+  margin-bottom: 15px;
+}
+.itemMenu-box349 {
   width: 705px;
 }
-section .itemMenu .itmu .itemMenu-box349 .itemMenu-box34 {
+.itemMenu-box349 .itemMenu-box34 {
   display: flex;
   justify-content: space-between;
-
   width: 100%;
+  gap: 20px;
 }
-section .itemMenu .itmu .itemMenu-box349 .itemMenu-box34 > div > div {
-  width: 100%;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  border-radius: 10px;
-  cursor: pointer;
-}
-
-section
-  .itemMenu
-  .itmu
-  .itemMenu-box349
-  .itemMenu-box34
-  .itemMenu-box03
-  .itemMenu05 {
-  height: 39%;
-  background-image: url(../images/main/menu_05.jpg);
-  margin-bottom: 10px;
-}
-section
-  .itemMenu
-  .itmu
-  .itemMenu-box349
-  .itemMenu-box34
-  .itemMenu-box03
-  .itemMenu06 {
-  height: 59%;
-  background-image: url(../images/main/menu_06.jpg);
-}
-section
-  .itemMenu
-  .itmu
-  .itemMenu-box349
-  .itemMenu-box34
-  .itemMenu-box04
-  .itemMenu07 {
-  height: 30%;
-  background-image: url(../images/main/menu_07.jpg);
-  margin-bottom: 10px;
-}
-section
-  .itemMenu
-  .itmu
-  .itemMenu-box349
-  .itemMenu-box34
-  .itemMenu-box04
-  .itemMenu08 {
-  height: 68%;
-  background-image: url(../images/main/menu_08.jpg);
-}
-
-section .itemMenu .itmu .itemMenu-box349 .itemMenu-box34 > div {
+.itemMenu-box349 .itemMenu-box34 > div {
   width: 345px;
   height: 565px;
 }
-section .itemMenu .itmu .itemMenu-box349 .itemMenu09 {
-  width: 100%;
+.itemMenu-box349 .itemMenu-box03 .itemMenu05 {
+  height: 39%;
+  margin-bottom: 10px;
+}
+.itemMenu-box349 .itemMenu-box03 .itemMenu06 {
+  height: 59%;
+}
+.itemMenu-box349 .itemMenu-box04 .itemMenu07 {
+  height: 30%;
+  margin-bottom: 10px;
+}
+.itemMenu-box349 .itemMenu-box04 .itemMenu08 {
+  height: 68%;
+}
+.itemMenu-box349 .itemMenu09 {
   height: 170px;
   margin-top: 11px;
   border-radius: 10px;
-  background-image: url(../images/main/footer_bg.jpeg);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
   position: relative;
-  cursor: pointer;
 }
-section .itemMenu .itmu .itemMenu-box349 .itemMenu09::after {
+.itemMenu-box349 .itemMenu09::after {
   content: "";
   display: block;
   width: 100%;
@@ -642,11 +779,10 @@ section .itemMenu .itmu .itemMenu-box349 .itemMenu09::after {
   left: 0;
   opacity: 0.7;
 }
-section .itemMenu .itmu .itemMenu-box349 .itemMenu09 * {
+.itemMenu-box349 .itemMenu09 * {
   position: relative;
   z-index: 2;
 }
-
 
 .itemMenu01,
 .itemMenu02,
@@ -659,148 +795,192 @@ section .itemMenu .itmu .itemMenu-box349 .itemMenu09 * {
   position: relative;
 }
 
-.itemMenu02 .glass, 
-.itemMenu07 .glass
-{
-width: 50px;
-height: 35px;
-justify-content: center;
-}
-.itemMenu04 .glass, 
-.itemMenu06 .glass, 
-.itemMenu08 .glass, 
-.itemMenu09 .glass{
-width: 110px;
-height: 35px;
-justify-content: space-between;
-padding: 0 10px;
-}
-.itemMenu01 .glass, 
-.itemMenu03 .glass, 
-.itemMenu05 .glass{
-    width: 200px;
-height: 35px;
-justify-content: space-between;
-padding: 0 10px;
-} 
-
-
-
 .itemMenu .glass {
-  background: rgba(116, 116, 116, 0.404); /* 캡슐 반투명 효과 */
-  border-radius: 50px; /* 캡슐 모양 */
+  background: rgba(116, 116, 116, 0.404);
+  border-radius: 50px;
   display: flex;
   align-items: center;
   position: absolute;
-  bottom: 15px; /* 이미지 하단에서 약간 위 */
+  bottom: 15px;
   left: 50%;
-  transform: translateX(-50%);
-  /* box-sizing: border-box; */
-  backdrop-filter: blur(5px); /* 유리 효과 */
+  transform: translateX(-50%) translateY(60px);
+  backdrop-filter: blur(5px);
   font-size: 18px;
   color: #fff;
-  transition: background 0.5s;
-}
-.itemMenu .glass:hover{
-    background: rgba(41, 41, 41, 0.404);
+  transition: transform 0.4s ease, opacity 0.4s ease;
+    pointer-events: none; /* 안 보일 때는 마우스 이벤트 무시 */
 }
 
-.itemMenu09 .glass{
-    top: 120px;
+.itemMenu .itemMenubox:hover .glass {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+  pointer-events: auto; /* 보일 때는 이벤트 활성화 */
 }
+
+.itemMenu09 .glass {
+  top: 120px;
+}
+
+.itemMenu07 .glass,
+.itemMenu04 .glass,
+.itemMenu06 .glass,
+.itemMenu08 .glass,
+.itemMenu09 .glass {
+  width: 110px;
+  height: 35px;
+  justify-content: space-between;
+  padding: 0 10px;
+}
+
+.itemMenu02 .glass,
+.itemMenu01 .glass,
+.itemMenu03 .glass,
+.itemMenu05 .glass {
+  width: 200px;
+  height: 35px;
+  justify-content: space-between;
+  padding: 0 10px;
+}
+
+
+
 /*브랜드소개*/
 
-section .brand {
-  width: 100%;
-  height: 650px;
-  background-color: #222;
-  color: #fff;
-}
+    section .brand {
+      width: 100%;
+      height: 650px;
+      background-color: #222;
+      color: #fff;
+    }
 
-section .brand .brandBox {
-  width: 1420px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items:end;
-  padding-top: 90px;
-}
+    section .brand .brandBox {
+      width: 1420px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      padding-top: 90px;
+    }
 
-section .brand .brandBox .brandText {
-  width: 700px;
-  margin: 0 auto;
-}
+    section .brand .brandBox .brandText {
+      width: 700px;
+    }
 
-section .brand .brandBox .brandText h1 {
-  font-size: 86px;
-  margin-bottom: 50px;
-}
+    section .brand .brandBox .brandText h1 {
+      font-size: 86px;
+      margin-bottom: 50px;
+    }
 
-section .brand .brandBox .brandText p {
-  font-size: 18px;
-  line-height: 1.5;
-}
+    section .brand .brandBox .brandText p {
+      font-size: 18px;
+      line-height: 1.5;
+    }
 
-section .brand .brandBox .brandimages-container {
-  width: 700px;
+    section .brand .brandBox .brandimages-container {
+      width: 700px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .brandimages {
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .brandimages-track {
+      display: flex;
+      transition: transform 0.5s ease;
+      width: 300%; /* 3개의 슬라이드 */
+    }
+
+    .brandimages-track > div {
+  flex: 0 0 700px;  /* 700px 고정 너비 */
+  max-width: 700px;
+  margin: 0;
+  padding: 0;
   position: relative;
-}
+    }
 
-section .brand .brandBox .brandimages {
-  width: 100%;
+    .brandimages-track > div img {
+      width: 700px;
+  height: 420px;      /* container 높이와 맞춤 */
+  object-fit: cover;  /* 비율 유지하면서 꽉 채우기 */
+  display: block;
+  margin: 0;
+  padding: 0;
+    }
+
+    .brandimages-track .history .history-txt,
+    .brandimages-track .sustain .sustain-txt,
+    .brandimages-track .careers .brandimages-txt {
+      position: absolute;
+      bottom: 50px;
+      left: 50px;
+    }
+
+    /* 네비게이션 버튼 */
+    .prev-btn, .next-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0, 0, 0, 0.5);
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      font-size: 18px;
+      cursor: pointer;
+      border-radius: 10px;
+      z-index: 10;
+    }
+
+    .prev-btn:hover, .next-btn:hover {
+      background: rgba(0, 0, 0, 0.8);
+    }
+
+    .prev-btn {
+      left: 10px;
+    }
+
+    .next-btn {
+      right: 10px;
+    }
+
+    .brandimages-container {
+  width: 700px;
+  height: 420px; /* ✅ 고정 높이 줘야 안정됨 */
   overflow: hidden;
   position: relative;
 }
-section .brand .brandBox .brandimages>div {
-    width: 100%;
-  display: none; /* 기본적으로 모든 슬라이드 숨김 */
-    position: relative;
+
+.brandimages {
+  width: 100%;
+  /* height: 100%; */
+  overflow: hidden;
 }
 
-section .brand .brandBox .brandimages > div.active {
+.brandimages-track {
+  display: flex;
+  width: 300%; /* 슬라이드 수만큼 */
+   gap: 0; /* 간격 없애기 */
+  transition: transform 0.5s ease;
+}
+
+.brandimages-track > div {
+  flex: 0 0 100%;
+  max-width: 100%;
+  text-align: left;
+  position: relative;
+   margin: 0; /* margin 없애기 */
+  padding: 0; /* padding 없애기 */
+}
+
+.brandimages-track > div img {
+  width: 700px;
+  height: auto;
+  object-fit: cover; /* ✅ 이미지 비율 유지하면서 꽉 채우기 */
   display: block;
 }
 
-section .brand .brandBox .brandimages .careers .brandimages-txt, 
-section .brand .brandBox .brandimages .sustain .sustain-txt, 
-section .brand .brandBox .brandimages .history .history-txt{
-    position: absolute;
-    bottom: 50px;
-    left: 50px;
-}
-
-section .brand .brandBox .brandimages > div img {
-  display: block;
-}
-
-/* 네비게이션 버튼 스타일 */
-section .brand .brandBox .brandimages-container .prev-btn,
-section .brand .brandBox .brandimages-container .next-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 10;
-  background: rgba(0, 0, 0, 0.5);
-  color: white;
-  border: none;
-  padding: 10px 15px;
-  font-size: 18px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  border-radius: 10px;
-}
-section .brand .brandBox .brandimages-container .prev-btn:hover,
-section .brand .brandBox .brandimages-container .next-btn:hover {
-  background: rgba(0, 0, 0, 0.8);
-}
-
-section .brand .brandBox .brandimages-container .prev-btn {
-  left: 10px;
-}
-
-section .brand .brandBox .brandimages-container .next-btn {
-  right: 10px;
-}
 
 
 /*사이드*/

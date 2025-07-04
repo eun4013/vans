@@ -944,13 +944,14 @@
       </div>
 
       <div class="sideMenu">
-<div class="chatbtn" onclick="toggleChat()">
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-    <g class="sparkle-wrapper">
-      <path class="sparkle" d="M32 0L39.2 24.8L64 32L39.2 39.2L32 64L24.8 39.2L0 32L24.8 24.8z" fill="currentColor" />
-    </g>
-  </svg>
-</div>
+        <div class="chatbtn" onclick="triggerBurst(this)">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+            <path
+              d="M32 0L39.2 24.8L64 32L39.2 39.2L32 64L24.8 39.2L0 32L24.8 24.8z"
+              fill="currentColor"
+            />
+          </svg>
+        </div>
 
         <div class="gotop">
           <i class="fa-solid fa-angle-up fa-beat"></i>
@@ -1163,11 +1164,58 @@
           sideMenu.classList.remove("active");
         });
       });
-      
 
-      const chatbtn = document.querySelector(".sideMenu .chatbtn");
-const sparkle = chatbtn.querySelector("path.sparkle");
 
+
+      // 별 터짐 애니메이션 함수
+function triggerBurst(button) {
+  const count = 6; // 터지는 별 개수
+  for (let i = 0; i < count; i++) {
+    const burst = document.createElement("span");
+    burst.classList.add("burst");
+
+    // 랜덤 방향으로 퍼지게 하기
+    const angle = Math.random() * 2 * Math.PI;
+    const distance = 30 + Math.random() * 20; // 퍼지는 거리
+    const x = Math.cos(angle) * distance + "px";
+    const y = Math.sin(angle) * distance + "px";
+
+    burst.style.setProperty("--x", x);
+    burst.style.setProperty("--y", y);
+
+    // 버튼 중심에서 시작
+    burst.style.left = "50%";
+    burst.style.top = "50%";
+    burst.style.position = "absolute";
+
+    button.appendChild(burst);
+
+    // 애니메이션 끝나면 별 제거
+    setTimeout(() => {
+      burst.remove();
+    }, 700);
+  }
+}
+
+// 상담창 토글 함수
+function toggleChat() {
+  const popup = document.getElementById("chatPopup");
+  popup.classList.toggle("active");
+}
+
+// 버튼 클릭 시 별 터짐 + 상담창 열기
+function chatBtnClicked(button) {
+  triggerBurst(button);
+  toggleChat();
+}
+
+// 페이지 로드 후 자동 별 터짐 (2초마다)
+window.addEventListener("DOMContentLoaded", () => {
+  const chatbtn = document.querySelector('.chatbtn');
+  setInterval(() => {
+    triggerBurst(chatbtn);
+  }, 2000);
+});
     </script>
   </body>
 </html>

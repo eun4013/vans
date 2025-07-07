@@ -908,6 +908,7 @@ section .itemMenu .itmu {
       width: 700px;
       position: relative;
       overflow: hidden;
+      cursor: pointer;
     }
 
     .brandimages {
@@ -1102,22 +1103,22 @@ section .sideMenu .chatbtn svg {
 .chat-popup {
   position: fixed;
   bottom: 170px;
-  right: 20px;
+  right: -290px;
   width: 280px;
   height: 360px;
   background-color: #fff;
   border: 2px solid #fa0f62;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  display: none;
+  /* display: none; */
   flex-direction: column;
   overflow: hidden;
-  font-family: "Pretendard", sans-serif;
   z-index: 50000;
 }
 
 .chat-popup.active {
   display: flex;
+  right: 30px;
 }
 
 /* 상담창머리 */

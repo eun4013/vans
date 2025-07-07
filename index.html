@@ -911,21 +911,21 @@
             <!-- 슬라이드 -->
             <div class="brandimages">
               <div class="brandimages-track">
-                <div class="history">
+                <div class="history brandimages">
                   <img src="images/main/history_01.png" alt="history" />
                   <div class="history-txt">
                     <h2>About</h2>
                     <p>브랜드스토리</p>
                   </div>
                 </div>
-                <div class="sustain">
+                <div class="sustain brandimages">
                   <img src="images/main/sustain-hero-m.jpg" alt="sustain" />
                   <div class="sustain-txt">
                     <h2>Sustainability</h2>
                     <p>The future starts today</p>
                   </div>
                 </div>
-                <div class="careers">
+                <div class="careers brandimages">
                   <img
                     src="images/main/careers_inclusivity.jpg"
                     alt="careers"
@@ -1073,7 +1073,7 @@
         const slideWidthPx = 700; // 슬라이드 하나 너비(px) — CSS랑 동일하게 맞춤
 
         let currentIndex = 1; // 슬라이드 클론 때문. 처음은 1
-        let intervalTime = 6000;
+        let intervalTime = 5000;
         let autoSlide;
 
         // 앞뒤에 클론 슬라이드 붙이기
@@ -1143,8 +1143,10 @@
           startAutoSlide();
         });
 
-        container.addEventListener("mouseenter", stopAutoSlide);
-        container.addEventListener("mouseleave", startAutoSlide);
+        allSlides.forEach((slide) => {
+          slide.addEventListener("mouseenter", stopAutoSlide);
+          slide.addEventListener("mouseleave", startAutoSlide);
+        });
 
         updateSlide(false);
         startAutoSlide();
@@ -1165,57 +1167,49 @@
         });
       });
 
-
-
       // 별 터짐 애니메이션 함수
-function triggerBurst(button) {
-  const count = 6; // 터지는 별 개수
-  for (let i = 0; i < count; i++) {
-    const burst = document.createElement("span");
-    burst.classList.add("burst");
+      function triggerBurst(button) {
+        const count = 5; // 터지는 별 개수
+        for (let i = 0; i < count; i++) {
+          const burst = document.createElement("span");
+          burst.classList.add("burst");
 
-    // 랜덤 방향으로 퍼지게 하기
-    const angle = Math.random() * 2 * Math.PI;
-    const distance = 30 + Math.random() * 20; // 퍼지는 거리
-    const x = Math.cos(angle) * distance + "px";
-    const y = Math.sin(angle) * distance + "px";
+          // 랜덤 방향으로 퍼지게 하기
+          const angle = Math.random() * 2 * Math.PI;
+          const distance = 30 + Math.random() * 20; // 퍼지는 거리
+          const x = Math.cos(angle) * distance + "px";
+          const y = Math.sin(angle) * distance + "px";
 
-    burst.style.setProperty("--x", x);
-    burst.style.setProperty("--y", y);
+          burst.style.setProperty("--x", x);
+          burst.style.setProperty("--y", y);
 
-    // 버튼 중심에서 시작
-    burst.style.left = "50%";
-    burst.style.top = "50%";
-    burst.style.position = "absolute";
+          // 버튼 중심에서 시작
+          burst.style.left = "50%";
+          burst.style.top = "50%";
+          burst.style.position = "absolute";
 
-    button.appendChild(burst);
+          button.appendChild(burst);
 
-    // 애니메이션 끝나면 별 제거
-    setTimeout(() => {
-      burst.remove();
-    }, 700);
-  }
-}
+          // 애니메이션 끝나면 별 제거
+          setTimeout(() => {
+            burst.remove();
+          }, 700);
+        }
+      }
 
-// 상담창 토글 함수
-function toggleChat() {
-  const popup = document.getElementById("chatPopup");
-  popup.classList.toggle("active");
-}
+      // 상담창 토글 함수
+      function triggerBurst(button) {
+        const popup = document.getElementById("chatPopup");
+        popup.classList.toggle("active");
+      }
 
-// 버튼 클릭 시 별 터짐 + 상담창 열기
-function chatBtnClicked(button) {
-  triggerBurst(button);
-  toggleChat();
-}
-
-// 페이지 로드 후 자동 별 터짐 (2초마다)
-window.addEventListener("DOMContentLoaded", () => {
-  const chatbtn = document.querySelector('.chatbtn');
-  setInterval(() => {
-    triggerBurst(chatbtn);
-  }, 2000);
-});
+      // 페이지 로드 후 자동 별 터짐 (2초마다)
+      // window.addEventListener("DOMContentLoaded", () => {
+      //   const chatbtn = document.querySelector('.chatbtn');
+      //   setInterval(() => {
+      //     triggerBurst(chatbtn);
+      //   }, 2000);
+      // });
     </script>
   </body>
 </html>

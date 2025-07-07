@@ -85,19 +85,16 @@ body {
 }
 
 @keyframes hyperGlow {
-  0%, 100% {
-    filter: drop-shadow(0 0 10px #fff) brightness(1);
+  0% {
+    filter: drop-shadow(0 0 0px #ffffff);
     transform: rotate(0deg);
   }
-  25%, 75%{
-    filter: drop-shadow(0 0 10px #fff) brightness(100);
-  }
   50%{
-    filter: drop-shadow(0 0 20px #fff) brightness(100);
+    filter: drop-shadow(0 0 20px #ffffff) ;
   }
   100%{
-    filter: drop-shadow(0 0 10px #fff) brightness(1);
-    transform: rotate(180deg);
+    filter: drop-shadow(0 0 0px #ffffff);
+    /* transform: rotate(180deg); */
   }
 }
 @keyframes starBurst {
@@ -1054,7 +1051,7 @@ section .sideMenu .chatbtn svg {
   width: 22px;
   height: 22px;
   color: #fff;
-  animation: hyperGlow 1.5s infinite ease-in-out;
+  animation: hyperGlow 0.5s infinite ease-in-out;
   transition: transform 0.3s ease, filter 0.3s ease;
 }
 
